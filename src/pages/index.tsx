@@ -18,7 +18,9 @@ export default function Home() {
             Be my Guest.<span> Welcome!</span>
           </p>
         </section>
-        <Image src="/profile_home_pic.png" alt="home pic" width="600" height="600"/>
+        <div >
+          <Image className={styles.imageHome} src="/profile_home_pic.png" alt="home pic" width="600" height="600"/>
+        </div>
       </main>
     </>
   )
