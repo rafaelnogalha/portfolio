@@ -15,8 +15,9 @@ export function Header(){
       px="6"
       align="center"
     >
-      <Items />
+
       <Logo />
+      <Items />
       
     </Flex>
   );

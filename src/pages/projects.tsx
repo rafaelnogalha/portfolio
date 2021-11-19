@@ -12,7 +12,9 @@ interface ProjectPageProps{
   data:{
     owner: string
     repo: string
+    language: string
     link: string
+    image: string
   }[];
 }
 
@@ -26,36 +28,40 @@ export default function Projects({ data }: ProjectPageProps){
       <Container
         maxWidth={1480}
         py={{ base: "15vh", md: "15vh" }}
-        alignItems="center"
-        justifyContent="space-between"
-        textAlign="center">
+        
+        
+      >
         <SimpleGrid 
-          minChildWidth="180px" 
-          spacing="40px"
+          minChildWidth="320px" 
+          spacing="40px" 
         >
           {
-            data.map(({owner, repo, link}) => (
+            data.map(({image, language, link, repo}) => (
               <Link
+                key={repo} 
                 href={link}
               >
                 <Box 
+                  textAlign="center"
                   rounded={'lg'}
                   boxShadow={'lg'}
                   p={10}
-                  key={owner} 
-                  borderRadius="lg" 
-                  overflow="hidden"
-                  maxW="sm" 
-                  borderWidth="1px"
+                  
+                  maxW={500}
                 > 
                   <Image
-                    src={"https://github.com/libgit2/libgit2sharp/raw/master/square-logo.png"}
+                    borderRadius="sm"  
+                    src={image}
+                    boxSize="full"
                   ></Image>
       
                   <Text 
+                    mt="4"
                     fontSize={["1xl","1xl"]} 
+                    fontWeight="bold"
+                    color={"gray.200"}
                   >
-                    {repo} 
+                    {language}
                   </Text>
                 </Box>
               </Link>
@@ -70,12 +76,7 @@ export default function Projects({ data }: ProjectPageProps){
 export async function getStaticProps(){
   const res = await fetch('https://gh-pinned-repos.egoist.sh/?username=rafaelnogalha')
   const data = await res.json()
-
-
-  //console.log(data) // Prints result from `response.json()` in getRequest
-
-
-  // console.log(res)
+  console.log(data)
 
   return{
     props:{
@@ -84,53 +85,3 @@ export async function getStaticProps(){
   }
 }
 
-// export async function getStaticProps(){
-//   const httpLink = createHttpLink({
-//     uri: 'https//api.github.com/graphql',
-//   });
-  
-//   const authLink = setContext((_, { headers }) => {
-//     return {
-//       headers: {
-//         ...headers,
-//         authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}` ,
-//       }
-//     }
-//   });
-  
-//   const client = new ApolloClient({
-//     link: authLink.concat(httpLink),
-//     cache: new InMemoryCache()
-//   });
-
-//   const { data } = await client.query({
-//     query: gql`
-//       {
-//         user(login: "rafaelnogalha") {
-//           pinnedItems(first: 6) {
-//             totalCount
-//             edges {
-//               node {
-//                 ... on Repository {
-//                   id
-//                   name
-//                   url
-//                   stargazerCount
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }  
-//     `
-//   })
-
-//   const { user } = data;
-//   const pinnedItems = user.pinnedItems.edges.map( (node:any) => node);
-
-//   return {
-//     props:{
-//       pinnedItems
-//     }
-//   }
-// }

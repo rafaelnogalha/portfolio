@@ -1,24 +1,30 @@
-import { Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 
 export function Logo(){
   return(
     
-    <Text
-      pos="fixed"
-      fontSize={["2xl","3xl"]}
-      fontWeight="bold"
-      letterSpacing="tight"
-      w="64"
+    <Flex
+  
     >
-      Rnoga
-      <Text 
-        as="span" 
-        ml="1"
-        color="pink.500"
+
+      <Text
+        
+        fontSize={["2xl","3xl"]}
+        fontWeight="bold"
+        letterSpacing="tight"
+        
       >
-        .
+        Rnoga
+        <Text 
+          as="span" 
+          ml="1"
+          color="pink.500"
+        >
+          .
+        </Text>
       </Text>
-    </Text>
+
+    </Flex>
     
   )
 }

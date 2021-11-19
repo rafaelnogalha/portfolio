@@ -7,12 +7,11 @@ export function Items(){
   const [display, changeDisplay] = useState('none')
   return(
     
-  <Flex>
+  <Flex
+    align="center"
+    ml="auto" 
+  >
     <Flex
-      pos="fixed"
-      top="4"
-      right="4"
-      align="center"
     >
       <Flex
         display={['none', 'none', 'flex', 'flex']}
