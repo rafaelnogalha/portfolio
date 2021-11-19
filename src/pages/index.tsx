@@ -1,27 +1,88 @@
+import { Flex, Container, Stack, Box, Heading, Text, Image, Center } from '@chakra-ui/react';
 import Head from 'next/head'
-import Image from 'next/image'
 
 import styles from './home.module.scss';
 
 
 export default function Home() {
-  return (
+ 
+
+  return(
     <>
       <Head>
         <title>HomePage | Nogalha</title>        
       </Head>
-      <main className={styles.contentContainer}>
-        <section className={styles.hero}>
-          <span>👋Hey, welcome</span>
-          <h1>This is<span> Rafael's Nogalha</span> world code.</h1>
-          <p>
-            Be my Guest.<span> Welcome!</span>
-          </p>
-        </section>
-        <div >
-          <Image className={styles.imageHome} src="/profile_home_pic.png" alt="home pic" width="600" height="600"/>
-        </div>
-      </main>
+      <Container
+        maxWidth={1480}
+        py={{ base: "15vh", md: "15vh" }}
+        alignItems="center"
+        display="flex"
+        justifyContent="space-between"
+        textAlign={['center', 'center', 'start', 'start']} 
+      >
+        <Stack
+          w={'full'}
+        >
+          <Flex
+            justify={['center', 'center', 'flex-start', 'flex-start']}
+          >
+            <Text
+              fontSize={["1xl","2xl"]}
+            >
+              👋Hey, welcome
+            </Text>
+          </Flex>
+          <Flex
+            justify={[
+              'center', 
+              'center', 
+              'flex-start', 
+              'flex-start'
+            ]}
+          >
+            <Heading>
+              <Text
+                fontSize={["1xl","6xl"]}
+              >
+                This is{" "}
+                  <Text 
+                    as="span"
+                    color={'blue.500'}
+                  >
+                    Rafael's Nogalha{" "}
+                  </Text>
+                world code.
+              </Text>
+            </Heading>
+
+          </Flex>
+          
+          <Flex
+            justify={['center', 'center', 'flex-start', 'flex-start']}
+          >
+            <Text
+              fontSize={["1xl","2xl"]}
+            >
+              Be my Guest.{" "}
+              <Text 
+                as="span"
+                color={'blue.500'}
+              >
+                Welcome!
+              </Text>
+            </Text>
+          </Flex>
+        </Stack>
+          
+          <Image 
+            borderRadius="full"
+            alt={'home pic'}
+            boxSize="500px"
+            display={['none', 'none', 'flex', 'flex']}
+            src="/profile_home_pic.png"
+          />
+        
+      </Container>
     </>
   )
 }

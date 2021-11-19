@@ -2,7 +2,6 @@ import { Flex, Button, IconButton } from '@chakra-ui/react'
 import { useState } from 'react'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
-import { ResponsiveItems } from './ResponsiveItems'
 
 export function Items(){
   const [display, changeDisplay] = useState('none')
@@ -48,21 +47,6 @@ export function Items(){
             About
           </Button>
         </NextLink>
-        <NextLink href="/contact" passHref>
-          <Button 
-            as="a"
-            variant="ghost"
-            _hover={{ 
-              bg: "gray.50",
-              color: "teal.900"
-            }}
-            aria-label="Contact"
-            my={5}
-            w="100%"
-          >
-            Contact
-          </Button>
-        </NextLink>
         <NextLink href="/projects" passHref>
           <Button 
             as="a"
@@ -78,6 +62,22 @@ export function Items(){
             Projects
           </Button>
         </NextLink>
+        <NextLink href="/contact" passHref>
+          <Button 
+            as="a"
+            variant="ghost"
+            _hover={{ 
+              bg: "gray.50",
+              color: "teal.900"
+            }}
+            aria-label="Contact"
+            my={5}
+            w="100%"
+          >
+            Contact
+          </Button>
+        </NextLink>
+        
       </Flex>
       <IconButton 
         aria-label="Open Menu"
@@ -161,22 +161,6 @@ export function Items(){
             About
           </Button>
         </NextLink>
-        <NextLink href="/contact" passHref>
-          <Button 
-            as="a"
-            variant="ghost"
-            aria-label="Contact"
-            my={5}
-            _hover={{ 
-              bg: "gray.50",
-              color: "teal.900"
-            }}
-            w="100%"
-            onClick={() => changeDisplay('none')}
-          >
-            Contact
-          </Button>
-        </NextLink>
         <NextLink href="/projects" passHref>
           <Button 
             as="a"
@@ -193,6 +177,23 @@ export function Items(){
             Projects
           </Button>
         </NextLink>
+        <NextLink href="/contact" passHref>
+          <Button 
+            as="a"
+            variant="ghost"
+            aria-label="Contact"
+            my={5}
+            _hover={{ 
+              bg: "gray.50",
+              color: "teal.900"
+            }}
+            w="100%"
+            onClick={() => changeDisplay('none')}
+          >
+            Contact
+          </Button>
+        </NextLink>
+        
       </Flex>
     </Flex> 
   </Flex>
