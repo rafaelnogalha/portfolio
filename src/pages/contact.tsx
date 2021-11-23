@@ -15,14 +15,14 @@ export default function Contact(){
 
   function sendEmail(){
     const formContact = document.getElementById('formContact')
-    console.log(formContact)
+    
 
     formContact?.addEventListener('submit', (e) =>{
       e.preventDefault()
       const name = (document.getElementById('name') as HTMLInputElement).value
       const email = (document.getElementById('email') as HTMLInputElement).value
       const message = (document.getElementById('message') as HTMLInputElement).value
-      console.log(name)
+      
       
       fetch('/api/sendEmailContact', {
         method: 'POST',

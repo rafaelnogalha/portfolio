@@ -76,7 +76,6 @@ export default function Projects({ data }: ProjectPageProps){
 export async function getStaticProps(){
   const res = await fetch('https://gh-pinned-repos.egoist.sh/?username=rafaelnogalha')
   const data = await res.json()
-  console.log(data)
 
   return{
     props:{
