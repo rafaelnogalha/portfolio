@@ -12,7 +12,7 @@ export default function sendEmail(req, res){
   })
 
   transporter.sendMail({
-    from: 'req.body.email',
+    from: req.body.email,
     to: process.env.USERMAIL,
     replyTo: req.body.email,
     subject: "CONTACT | PORTFOLIO RAFAEL NOGALHA", 
