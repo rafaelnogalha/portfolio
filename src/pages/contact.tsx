@@ -8,7 +8,8 @@ import {
   Textarea, 
   Flex,
   Heading,
-  Button
+  Button,
+  HStack
 } from '@chakra-ui/react'
 
 export default function Contact(){
@@ -51,18 +52,20 @@ export default function Contact(){
         py={{ base: "10vh", md: "10vh" }}
         align={'center'}
         justify={'center'}
+        
       >
         <Stack 
-          spacing={8} 
           mx={'auto'} 
           maxW={'lg'} 
           py={12} 
           px={6}
+          
         >  
           <Box
             rounded={'lg'}
             boxShadow={'lg'}
-            p={10}>
+            p={10}
+          >
             <Stack 
               spacing={4}
             >
@@ -75,16 +78,21 @@ export default function Contact(){
                 <form 
                   id="formContact"  
                 >
-                  <FormControl>
-                    <Input id="name" placeholder="Name" type="name" />
-                  </FormControl>
-                  <FormControl>
-                    <Input id="email" placeholder="Email" type="email" />
-                  </FormControl>
-                  <FormControl>
-                    <Textarea id="message" placeholder="Message" type="textarea" />
-                  </FormControl>
-                    
+                  <Box>
+                    <FormControl>
+                      <Input id="name" placeholder="Name" type="name" />
+                    </FormControl>
+                  </Box>
+                  <Box>
+                    <FormControl>
+                      <Input id="email" placeholder="Email" type="email" />
+                    </FormControl>
+                  </Box>
+                  <Box>
+                    <FormControl>
+                      <Textarea id="message" placeholder="Message" type="textarea" />
+                    </FormControl>
+                  </Box>
                   <Stack spacing={10}>
                       <Button
                         onClick={sendEmail}
